@@ -1,0 +1,7 @@
+#!/bin/sh
+# This pre-commit hook prevents committing if any .txt file has TODO
+
+if git grep -q "TODO" -- '*.txt'; then
+  echo "ERROR: Please remove TODO comments before committing"
+  exit 1
+fi
